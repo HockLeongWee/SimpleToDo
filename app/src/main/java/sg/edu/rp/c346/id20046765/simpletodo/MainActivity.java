@@ -3,6 +3,7 @@ package sg.edu.rp.c346.id20046765.simpletodo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -45,9 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
         alToDo  = new ArrayList<String>(); // ArrayList
 
-
         aaTodo  = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alToDo);
-        lvTaskToDo.setAdapter(aaTodo);
+        lvTaskToDo.setAdapter(aaTodo); // I tried very hard to research on how to change the colour of it, but too complex for me lmao
+
+
+        ArrayAdapter adapterForSpinner = ArrayAdapter.createFromResource(this, R.array.spinnerItems, R.layout.spinner_text); // To change the adapater of what the spinner uses
+        spnAddRemove.setAdapter(adapterForSpinner); // To find out how to change this, spent me 2h 42mins. This is to assign / conenct the spinner I think
+
+        adapterForSpinner.setDropDownViewResource(R.layout.spinner_menu_color);
+        spnAddRemove.setAdapter(adapterForSpinner);
 
         spnAddRemove.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -57,13 +64,20 @@ public class MainActivity extends AppCompatActivity {
                         etTask.setHint("Type in a new task here");
                         buttonDelete.setEnabled(false);
                         buttonAdd.setEnabled(true);
+                        buttonAdd.setBackgroundColor(Color.parseColor("#8A2BE2"));
+                        buttonClear.setBackgroundColor(Color.parseColor("#8A2BE2"));
+                        buttonDelete.setBackgroundColor(Color.parseColor("#4B0082"));
                         break;
                     case 1:
                         etTask.setHint("Type in the index of the task to be removed");
                         buttonDelete.setEnabled(true);
                         buttonAdd.setEnabled(false);
+                        buttonClear.setBackgroundColor(Color.parseColor("#8A2BE2"));
+                        buttonDelete.setBackgroundColor(Color.parseColor("#8A2BE2"));
+                        buttonAdd.setBackgroundColor(Color.parseColor("#4B0082"));
                         break;
                 }
+
             }
 
             @Override
@@ -100,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         buttonClear.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -109,9 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 etTask.setText(null);
             }
         });
-
-
-
 
     }
 }

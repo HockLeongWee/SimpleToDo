@@ -3,64 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7515BA"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="To Do List"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        tools:layout_marginLeft="20dp" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:entries="@array/spinnerItems" />
 
     <EditText
         android:id="@+id/tvTask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="#9570D7"
+        android:textColorHint="@color/white"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="237dp"
+        android:layout_height="397dp"
         android:layout_weight="1"
+        android:background="#9570DD"
         android:orientation="horizontal"
         tools:context=".MainActivity">
 
         <Button
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:text="@string/buttonAdd" />
+            android:gravity="center|center_vertical"
+            android:text="@string/buttonAdd"
+            app:backgroundTint="#502989" />
 
         <Button
             android:id="@+id/buttonDelete"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:text="@string/buttonDelete" />
+            android:gravity="center"
+            android:text="@string/buttonDelete"
+            app:backgroundTint="#502989" />
 
         <Button
             android:id="@+id/buttonClear"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:text="@string/buttonClear" />
+            android:gravity="center"
+            android:text="@string/buttonClear"
+            app:backgroundTint="#502989" />
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvTaskToDo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:background="#9570DD" />
 </LinearLayout>
